@@ -1,6 +1,67 @@
-body {
-    font-family: system-ui;
-    background: #f06d06;
-    color: white;
-    text-align: center;
-  }
+*,
+		*:before,
+		*:after {
+			box-sizing: border-box;
+			position: relative;
+			letter-spacing: 0.04em;
+		}
+
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: Arial, Helvetica, sans-serif;
+			overflow-x: hidden;
+		}
+
+		.hrz-container {
+			/* width: 100vw; */
+			height: 100vh;
+			display: flex;
+			flex-wrap: nowrap;
+			background-color: blue;
+			padding: 10px;
+		}
+
+		.hrz-container hrz2 {
+			background-color: red;
+		}
+
+		.vert-container {
+			width: 100vw;
+			flex-flow: row;
+			align-items: center;
+			justify-content: center;
+			background-color: green;
+		}
+
+		.vert-container p {
+			width: 100vw;
+			background-color: greenyellow;
+		}
+
+		section {
+			height: 100vh;
+			display: flex;
+			flex-wrap: wrap;
+			flex-shrink: 0;
+			border: 1px solid #000;
+		}
+
+		.vert-container section {
+			width: 100vw;
+		}
+
+		.s1 p {
+			width: 900px;
+			background-color: red;
+		}
+
+		.s2 p {
+			width: 1200px;
+			background-color: yellow;
+		}
+
+		.s3 p {
+			width: 1500px;
+			background-color: rgb(43, 255, 0);
+		}

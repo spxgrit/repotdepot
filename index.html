@@ -2,13 +2,90 @@
 <html>
   <head>
     <link rel="stylesheet" href="./style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
     <title>This is the title of the webpage!</title>
   </head>
+
   <body>
-    <h1>👋 Hello World!🐼</h1>
+    <div class="hrz-container hrz1">
+		<section class="s1">
+			<p>S1-1</p>
+		</section>
+		<section class="s2">
+			<p>S1-2</p>
+		</section>
+		<section class="s3">
+			<p>S1-3</p>
+		</section>
+	</div>
+
+	<div class="vert-container">
+		<section class="p4">
+			<p>S2-1</p>
+		</section>
+		<section class="p5">
+			<p>S2-2</p>
+		</section>
+		<section class="p6">
+			<p>S2-3</p>
+		</section>
+	</div>
+
+	<div class="hrz-container hrz2">
+		<section class="s1">
+			<p>S3-1</p>
+		</section>
+		<section class="s2">
+			<p>S3-2</p>
+		</section>
+		<section class="s3">
+			<p>S3-3</p>
+		</section>
+	</div>
+  
+
 
     <script>
-        document.getElementsByTagName("h1")[0].style.fontSize = "9vw";
+        gsap.registerPlugin(ScrollTrigger);
+let containerhrz1 = document.querySelector(".hrz-container.hrz1");
+let sectionshrz1 = gsap.utils.toArray(".hrz-container.hrz1 section");
+let tl1 = gsap.timeline({
+  scrollTrigger: {
+    pin: true,
+    scrub: 1,
+    trigger: containerhrz1,
+    invalidateOnRefresh: true,
+    end: () => "+=" + (containerhrz1.scrollWidth - document.documentElement.clientWidth)
+  }
+});
+
+tl1.to(sectionshrz1, {
+  x: () => -(containerhrz1.scrollWidth - document.documentElement.clientWidth) + "px",
+  duration: 1,
+  ease: "none"
+}, 0.05);
+tl1.to({}, {duration: 0.1});
+
+let containerhrz2 = document.querySelector(".hrz-container.hrz2");
+let sectionshrz2 = gsap.utils.toArray(".hrz-container.hrz2 section");
+
+let tl2 = gsap.timeline({
+  scrollTrigger: {
+    pin: true,
+    scrub: 1,
+    trigger: containerhrz2,
+    invalidateOnRefresh: true,
+    end: () => "+=" + (containerhrz2.scrollWidth - document.documentElement.clientWidth)
+  }
+});
+
+tl2.to(sectionshrz2, {
+  x: () => -(containerhrz2.scrollWidth - document.documentElement.clientWidth) + "px",
+  ease: "none"
+}, 0.05);
+tl2.to({}, {duration: 0.1}); // add some padding at the end.
+
     </script>
   </body>
 </html>
